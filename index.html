@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Угадай правило</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">✦</div>
+      <div class="brand-text">
+        <div class="brand-title">Угадай правило</div>
+        <div class="brand-subtitle">Интерактив с персонажами</div>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <button id="btnHome" class="chip" type="button" title="На главную">Главная</button>
+      <button id="btnResetBest" class="chip chip-ghost" type="button" title="Сбросить лучший результат">Сброс рекорда</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- LANDING -->
+    <section id="screenLanding" class="screen screen-active">
+      <div class="hero">
+        <h1>Угадай правило</h1>
+        <p class="muted">
+          Выбирай режим и проходи 3 раунда. В каждом раунде — 5 персонажей, и только один подходит под правило.
+        </p>
+
+        <div class="mode-grid">
+          <button class="card-btn" id="startEasy" type="button">
+            <div class="card-btn__title">Лёгкий режим</div>
+            <div class="card-btn__text">Поймёшь правило по подсказкам в конце</div>
+            <div class="pill">3 раунда • 1 правило</div>
+          </button>
+
+          <button class="card-btn" id="startHard" type="button">
+            <div class="card-btn__title">Сложный режим</div>
+            <div class="card-btn__text">Выводишь правило из выборов. Финал — “что объединяет?”</div>
+            <div class="pill">3 раунда • 1 правило</div>
+          </button>
+        </div>
+
+        <div class="landing-footer">
+          <div class="credit">
+            Сделано благодаря Тг каналу <b>@sinsintheheart</b> и <b>@fannacters</b>
+          </div>
+          <div class="bestline">
+            Лучший результат: <span id="bestScore">—</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="screenGame" class="screen">
+      <div class="gamehead">
+        <div class="gamehead-left">
+          <div class="mode-badge" id="modeBadge">Режим</div>
+          <div class="round-title" id="roundTitle">Раунд 1 из 3</div>
+          <div class="muted" id="roundHint">Выбери одного персонажа</div>
+        </div>
+
+        <div class="gamehead-right">
+          <div class="scorebox">
+            <div class="scorebox-label">Очки</div>
+            <div class="scorebox-value" id="score">0</div>
+          </div>
+
+          <button class="btn" id="btnQuit" type="button">Выйти</button>
+        </div>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="grid" id="cardsGrid"></div>
+
+      <div class="actions">
+        <button class="btn btn-ghost" id="btnNext" type="button" disabled>
+          Дальше →
+        </button>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="screenResult" class="screen">
+      <div class="result">
+        <div class="result-badge" id="resultMode">Режим</div>
+        <h2 id="resultTitle">Итог</h2>
+        <p class="result-rule" id="resultRule">Правило: …</p>
+
+        <div class="result-stats">
+          <div class="stat">
+            <div class="stat-label">Очки</div>
+            <div class="stat-value" id="finalScore">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Правильных</div>
+            <div class="stat-value" id="finalCorrect">0 / 3</div>
+          </div>
+        </div>
+
+        <div class="result-buttons">
+          <button class="btn" id="btnReplay" type="button">Сыграть ещё раз</button>
+          <button class="btn btn-ghost" id="btnBackHome" type="button">На главную</button>
+        </div>
+
+        <div class="muted tiny">
+          Подсказка: если хочешь — могу добавить “галерею персонажей” и страницу со всеми правилами/уровнями.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
